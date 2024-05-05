@@ -1,7 +1,7 @@
 # COGS209SP24-Project1-GroupNeuromorphs
 
 ## Getting started
-1. Follow instructions frombrain-diffusor to create the python environment\
+1. Follow instructions from brain-diffusor to create the python environment\
 Note: please make sure tokenizers==0.12.1 and transformers==4.19.2. For the diffusion environment, you may use `requirement.txt`
 
 + For mac and linux:
@@ -36,6 +36,7 @@ unzip sub-07.zip
 unzip sub-08.zip
 unzip sub-09.zip
 unzip sub-10.zip
+python thingseeg2_data_preparation_scripts/prepare_thingseeg2_data.py 
 ```
 
 3. Download [ground truth images](https://osf.io/y63gw/), unzip "training_images", "test_images" under data/thingseeg2_metadata
@@ -50,5 +51,25 @@ unzip test_images.zip
 cd ../../
 python thingseeg2_data_preparation_scripts/save_thingseeg2_images.py
 python thingseeg2_data_preparation_scripts/save_thingseeg2_concepts.py
+```
+
+4. Download VDVAE and Versatile Diffusion weights
+```
+cd vdvae/model/
+wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-assets-2/imagenet64-iter-1600000-log.jsonl
+wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-assets-2/imagenet64-iter-1600000-model.th
+wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-assets-2/imagenet64-iter-1600000-model-ema.th
+wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-assets-2/imagenet64-iter-1600000-opt.th
+cd ../../versatile_diffusion/pretrained/
+wget https://huggingface.co/shi-labs/versatile-diffusion/resolve/main/pretrained_pth/vd-four-flow-v1-0-fp16-deprecated.pth
+wget https://huggingface.co/shi-labs/versatile-diffusion/resolve/main/pretrained_pth/kl-f8.pth
+wget https://huggingface.co/shi-labs/versatile-diffusion/resolve/main/pretrained_pth/optimus-vae.pth
+```
+
+5. Extract train and test latent embeddings from images and text labels
+```
+python thingseeg2_data_preparation_scripts/vdvae_extract_features.py 
+python thingseeg2_data_preparation_scripts/clipvision_extract_features.py 
+python thingseeg2_data_preparation_scripts/cliptext_extract_features.py 
 ```
  
