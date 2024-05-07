@@ -36,6 +36,7 @@ unzip sub-07.zip
 unzip sub-08.zip
 unzip sub-09.zip
 unzip sub-10.zip
+cd ../../
 python thingseeg2_data_preparation_scripts/prepare_thingseeg2_data.py 
 ```
 
