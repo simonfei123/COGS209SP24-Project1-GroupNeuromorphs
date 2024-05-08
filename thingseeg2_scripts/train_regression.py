@@ -39,10 +39,8 @@ cliptext_filename = 'regress_cliptext.npy'
 
 ids = list(range(len(eeg_train)))
 # VDVAE Regression
-# train_latents= np.load('cache/thingseeg2_extracted_embeddings/train_autokl.npy', mmap_mode='r')[ids]
-# test_latents = np.load('cache/thingseeg2_extracted_embeddings/test_autokl.npy', mmap_mode='r')
-train_latents= np.load('cache/extracted_embeddings/train_autokl.npy', mmap_mode='r')[ids]
-test_latents = np.load('cache/extracted_embeddings/test_autokl.npy', mmap_mode='r')
+train_latents= np.load('cache/thingseeg2_extracted_embeddings/train_autokl.npy', mmap_mode='r')[ids]
+test_latents = np.load('cache/thingseeg2_extracted_embeddings/test_autokl.npy', mmap_mode='r')
 print(train_latents.shape, test_latents.shape)
 
 print("Training VDVAE Regression")
@@ -77,10 +75,8 @@ correlations = (1 - correlation_distances).mean()
 print(reg.score(eeg_test,test_latents), average_euclidean_distance, correlations)
 
 # CLIP-Vision Regression
-# train_clip_all = np.load('cache/thingseeg2_extracted_embeddings/train_clipvision.npy', mmap_mode='r')
-# test_clip = np.load('cache/thingseeg2_extracted_embeddings/test_clipvision.npy', mmap_mode='r')
-train_clip_all = np.load('cache/extracted_embeddings/train_clipvision.npy', mmap_mode='r')
-test_clip = np.load('cache/extracted_embeddings/test_clipvision.npy', mmap_mode='r')
+train_clip_all = np.load('cache/thingseeg2_extracted_embeddings/train_clipvision.npy', mmap_mode='r')
+test_clip = np.load('cache/thingseeg2_extracted_embeddings/test_clipvision.npy', mmap_mode='r')
 train_clip = train_clip_all[ids]
 print(train_clip.shape, test_clip.shape)
 
@@ -119,10 +115,8 @@ with open(weights_save_dir + clipvision_weights_filename, "wb") as f:
 np.save(save_dir + clipvision_filename, pred_clip)
 
 # CLIP-Text Regression
-# train_clip_all = np.load('cache/thingseeg2_extracted_embeddings/train_cliptext.npy', mmap_mode='r')
-# test_clip = np.load('cache/thingseeg2_extracted_embeddings/test_cliptext.npy', mmap_mode='r')
-train_clip_all = np.load('cache/extracted_embeddings/train_cliptext.npy', mmap_mode='r')
-test_clip = np.load('cache/extracted_embeddings/test_cliptext.npy', mmap_mode='r')
+train_clip_all = np.load('cache/thingseeg2_extracted_embeddings/train_cliptext.npy', mmap_mode='r')
+test_clip = np.load('cache/thingseeg2_extracted_embeddings/test_cliptext.npy', mmap_mode='r')
 train_clip = train_clip_all[ids]
 
 num_features = eeg_train.shape[1]
