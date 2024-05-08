@@ -82,5 +82,17 @@ python thingseeg2_data_preparation_scripts/test_eval_extract_features.py
 ```
 python thingseeg2_scripts/train_regression.py 
 python thingseeg2_scripts/reconstruct_from_embeddings.py 
+python thingseeg2_scripts/evaluation_extract_features.py 
+python thingseeg2_scripts/evaluate_reconstruction.py 
 python thingseeg2_scripts/plot_reconstructions.py -ordered True
+```
+
+## Transfer learning and reconstruction
+```
+python thingseeg2_transfer_learning_scripts/transfer_learning.py 
+python thingseeg2_transfer_learning_scripts/train_regression.py 
+python thingseeg2_transfer_learning_scripts/reconstruct_from_embeddings.py 
+python thingseeg2_transfer_learning_scripts/evaluation_extract_features.py 
+python thingseeg2_transfer_learning_scripts/evaluate_reconstruction.py 
+python thingseeg2_transfer_learning_scripts/plot_reconstructions.py -ordered True
 ```
