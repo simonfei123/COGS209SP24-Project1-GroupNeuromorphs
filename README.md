@@ -1,6 +1,6 @@
 # COGS209SP24-Project1-GroupNeuromorphs
 
-![reconstructions](results/thingseeg2_preproc/sub-01/diffusion_recon_plot_ordered_by_performance.png)
+![reconstructions](results/thingseeg2_preproc/sub-01/diffusion_recon_plot_3000avg_transfered_from2.png)
 
 ## Getting started
 1. Follow instructions from brain-diffusor to create the python environment\
