@@ -75,7 +75,7 @@ cd ../../
 python thingseeg2_data_preparation_scripts/vdvae_extract_features.py 
 python thingseeg2_data_preparation_scripts/clipvision_extract_features.py 
 python thingseeg2_data_preparation_scripts/cliptext_extract_features.py 
-python thingseeg2_data_preparation_scripts/test_eval_extract_features.py 
+python thingseeg2_data_preparation_scripts/evaluation_extract_features_from_test_images.py 
 ```
  
 ## Training and reconstruction
