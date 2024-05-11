@@ -1,6 +1,7 @@
 # COGS209SP24-Project1-GroupNeuromorphs
 
 ![reconstructions](results/thingseeg2_preproc/sub-01/diffusion_recon_plot_3000avg_transfered_from2.png)
+With transfer learning, only 3000 training images is required to reach an average clip final pairwise correlation of 0.736 (compared to 0.687 without transfer learning).
 
 ## Getting started
 1. Follow instructions from brain-diffusor to create the python environment\
