@@ -1,5 +1,8 @@
 # COGS209SP24-Project1-GroupNeuromorphs
 
+![reconstructions](results/thingseeg2_preproc/sub-01/diffusion_recon_plot_3000avg_transfered_from2.png)
+With transfer learning, only 3000 training images is required to reach an average clip final pairwise correlation of 0.736 (compared to 0.687 without transfer learning).
+
 ## Getting started
 1. Follow instructions from brain-diffusor to create the python environment\
 Note: please make sure tokenizers==0.12.1 and transformers==4.19.2. For the diffusion environment, you may use `requirement.txt`
@@ -36,6 +39,7 @@ unzip sub-07.zip
 unzip sub-08.zip
 unzip sub-09.zip
 unzip sub-10.zip
+cd ../../
 python thingseeg2_data_preparation_scripts/prepare_thingseeg2_data.py 
 ```
 
@@ -64,6 +68,7 @@ cd ../../versatile_diffusion/pretrained/
 wget https://huggingface.co/shi-labs/versatile-diffusion/resolve/main/pretrained_pth/vd-four-flow-v1-0-fp16-deprecated.pth
 wget https://huggingface.co/shi-labs/versatile-diffusion/resolve/main/pretrained_pth/kl-f8.pth
 wget https://huggingface.co/shi-labs/versatile-diffusion/resolve/main/pretrained_pth/optimus-vae.pth
+cd ../../
 ```
 
 5. Extract train and test latent embeddings from images and text labels
@@ -71,5 +76,24 @@ wget https://huggingface.co/shi-labs/versatile-diffusion/resolve/main/pretrained
 python thingseeg2_data_preparation_scripts/vdvae_extract_features.py 
 python thingseeg2_data_preparation_scripts/clipvision_extract_features.py 
 python thingseeg2_data_preparation_scripts/cliptext_extract_features.py 
+python thingseeg2_data_preparation_scripts/evaluation_extract_features_from_test_images.py 
 ```
  
+## Training and reconstruction
+```
+python thingseeg2_scripts/train_regression.py 
+python thingseeg2_scripts/reconstruct_from_embeddings.py 
+python thingseeg2_scripts/evaluation_extract_features.py 
+python thingseeg2_scripts/evaluate_reconstruction.py 
+python thingseeg2_scripts/plot_reconstructions.py -ordered True
+```
+
+## Transfer learning and reconstruction
+```
+python thingseeg2_transfer_learning_scripts/transfer_learning.py 
+python thingseeg2_transfer_learning_scripts/train_regression.py 
+python thingseeg2_transfer_learning_scripts/reconstruct_from_embeddings.py 
+python thingseeg2_transfer_learning_scripts/evaluation_extract_features.py 
+python thingseeg2_transfer_learning_scripts/evaluate_reconstruction.py 
+python thingseeg2_transfer_learning_scripts/plot_reconstructions.py -ordered True
+```

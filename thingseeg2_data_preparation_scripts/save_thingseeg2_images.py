@@ -25,3 +25,11 @@ for test_img_idx in tqdm(range(n_test_img), total=n_test_img, desc='Loading test
     test_img[test_img_idx] = np.array(Image.open(test_img_dir).convert('RGB'))
 
 np.save('data/thingseeg2_metadata/test_images.npy', test_img)
+
+test_images_dir = 'data/thingseeg2_metadata/test_images_direct/'
+
+if not os.path.exists(test_images_dir):
+   os.makedirs(test_images_dir)
+for i in tqdm(range(len(test_img)), total=len(test_img), desc='Saving direct test images'):
+    im = Image.fromarray(test_img[i].astype(np.uint8))
+    im.save('{}/{}.png'.format(test_images_dir,i))

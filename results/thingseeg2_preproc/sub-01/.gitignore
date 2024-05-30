@@ -1,0 +1,5 @@
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+!diffusion_recon_plot_3000avg_transfered_from2.png

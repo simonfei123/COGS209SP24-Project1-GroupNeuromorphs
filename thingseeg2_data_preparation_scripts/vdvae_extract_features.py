@@ -27,11 +27,11 @@ from tqdm import tqdm
 
 import argparse
 parser = argparse.ArgumentParser(description='Argument Parser')
-parser.add_argument("-sub", "--sub",help="Subject Number",default=1)
+# parser.add_argument("-sub", "--sub",help="Subject Number",default=1)
 parser.add_argument("-bs", "--bs",help="Batch Size",default=30)
 args = parser.parse_args()
-sub=int(args.sub)
-assert sub in [1,2,5,7]
+# sub=int(args.sub)
+# assert sub in [1,2,5,7]
 batch_size=int(args.bs)
 
 print('Libs imported')
